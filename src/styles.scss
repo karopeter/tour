@@ -1,0 +1,61 @@
+$color-grey-dark: #777;
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-land {
+      @media (max-width: 75rem) { font-size: 56.25%; }; //1200px
+    }
+    @if $breakpoint == tab-port {
+      @media (max-width: 56.25rem) { font-size: 50%; }; // 900px
+    }
+    @if $breakpoint == big-desktop {
+      @media (min-width: 112.5rem) { font-size: 75%; }; //1800px
+    }
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+     padding: 0;
+    }
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+
+// MEDIA QUERY MANAGER 
+/*
+0 - 600px:    phone
+600 - 900px:  Tablet protrait
+900 - 1200px: Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :  Big desktop
+
+$breakpoint argument choices
+- phone 
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+*/
+
+

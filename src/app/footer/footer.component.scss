@@ -1,0 +1,210 @@
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 2rem;
+
+// COLORS
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-primary-light: #7ed56f;
+$color-white: #fff;
+$color-primary-dark: #28b485;
+$color-black: #000;
+$color-primary: #55c57a;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+
+// FONT
+$default-font-size: 1.6rem;
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.u-center-text {
+  text-align: center !important;
+}
+
+u.margin-bottom-big {
+  margin-bottom: 8rem !important;
+}
+
+u.margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+
+u.margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+
+u.margin-top-big {
+  margin-top: 8rem !important;
+}
+
+u.margin-top-huge {
+  margin-top: 10rem !important;
+}
+
+.footer {
+  background-color: $color-grey-dark-3;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  color: $color-grey-light-1;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+     padding: 8rem 0;
+    }
+   }
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 8rem;
+
+     @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        margin-bottom: 6rem;
+      }
+    }
+  }
+
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    display: inline-block;
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        width: 100%;
+        text-align: center;
+      }
+     }
+  }
+
+  &__list {
+   list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+   &:not(:last-child) {
+     margin-right: 1.5rem;
+   }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-grey-light-1;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all .2s;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, .4);
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    width: 80%;
+    float: right;
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        width: 100%;
+        float: none;
+      }
+     }
+  }
+}
+
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+      @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        max-width: 50rem;
+        padding: 0 3rem;
+      }
+     }
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @mixin respond($breakpoint) {
+        @if $breakpoint == tab-port {
+          margin-right: 0;
+          margin-bottom: $gutter-vertical-small;
+        }
+      }
+    }
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+  .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+  .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+  }
+}
